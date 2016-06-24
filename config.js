@@ -18,6 +18,7 @@ function getEnv(v, def) {
 
 
 const defaults = {
+  compress: false,  // let nginx handle this
   mail: {},
   server: {
     host: '0.0.0.0',
@@ -32,12 +33,12 @@ const config = {
     database: {
       client: 'sqlite3',
       connection: {
-        filename: '/ghost/blog.db'
+        filename: '/persist/blog.db'
       },
       debug: false
     },
     paths: {
-      contentPath: '/ghost/content/'
+      contentPath: '/persist/content/'
     }
   }),
 
