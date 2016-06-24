@@ -14,9 +14,21 @@ const defaults = {
 };
 
 
+function getEnv(v) {
+  if (!process.env.hasOwnProperty(v)) {
+    if (process.env.NODE_ENV === 'production') {
+      throw new Error(`Missing environment var: ${v}`);
+    } else {
+      return '';
+    }
+  }
+  return process.env[v];
+}
+
+
 const config = {
   production: Object.assign({}, defaults, {
-    url: 'https://blog-admin.openride.co',
+    url: getEnv('URL'),
     database: {
       client: 'sqlite3',
       connection: {
