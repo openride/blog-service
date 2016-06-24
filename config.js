@@ -33,7 +33,7 @@ const config = {
     database: {
       client: 'sqlite3',
       connection: {
-        filename: '/persist/blog.db'
+        filename: '/persist/data/blog.db'
       },
       debug: false
     },
