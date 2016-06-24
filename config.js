@@ -5,25 +5,25 @@
 const path = require('path');
 
 
-const defaults = {
-  mail: {},
-  server: {
-    host: '127.0.0.1',
-    port: '2368'
-  }
-};
-
-
-function getEnv(v) {
+function getEnv(v, def) {
   if (!process.env.hasOwnProperty(v)) {
     if (process.env.NODE_ENV === 'production') {
       throw new Error(`Missing environment var: ${v}`);
     } else {
-      return '';
+      return def || '';
     }
   }
   return process.env[v];
 }
+
+
+const defaults = {
+  mail: {},
+  server: {
+    host: '0.0.0.0',
+    port: getEnv('PORT', '2368')
+  }
+};
 
 
 const config = {
