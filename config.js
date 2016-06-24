@@ -39,6 +39,16 @@ const config = {
     },
     paths: {
       contentPath: '/persist/'
+    },
+    mail: {
+      transport: 'SMTP',
+      options: {
+        service: 'Mailgun',
+        auth: {
+          user: getEnv('MAILGUN_USER'),
+          pass: getEnv('MAILGUN_PASSWORD')
+        }
+      }
     }
   }),
 
