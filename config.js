@@ -38,7 +38,7 @@ const config = {
       debug: false
     },
     paths: {
-      contentPath: '/persist/content/'
+      contentPath: '/persist/'
     }
   }),
 
